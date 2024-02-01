@@ -48,7 +48,6 @@ class CuckooHash:
 			current_table = 1 - current_table
 			count += 1
 			
-		print("Cycle threshold exceeded, insertion failed")
 		return False
 
 	def lookup(self, key: int) -> bool:
