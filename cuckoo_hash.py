@@ -33,7 +33,7 @@ class CuckooHash:
 		current_table = 0
 		eviction = 0
 
-		while eviction < self.CYCLE_THRESHOLD:
+		while eviction <= self.CYCLE_THRESHOLD:
 
 			position = self.hash_func(key, current_table)
 
