@@ -24,11 +24,11 @@ class CuckooHash:
 
 	def insert(self, key: int) -> bool:
 		
-		#checking if key exists in the hash table
-		for table_id in range(2):
-			for existing_key in self.tables[table_id]:
-				if existing_key == key:
-					return True 
+		# #checking if key exists in the hash table
+		# for table_id in range(2):
+		# 	for existing_key in self.tables[table_id]:
+		# 		if existing_key == key:
+		# 			return True 
 		
 		current_table = 0
 		eviction = 0
