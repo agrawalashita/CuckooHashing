@@ -33,7 +33,7 @@ class CuckooHash:
 		current_table = 0
 		count = 0
 
-		while count <= self.CYCLE_THRESHOLD:
+		while count < self.CYCLE_THRESHOLD:
 
 			position = self.hash_func(key, current_table)
 
