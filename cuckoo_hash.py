@@ -31,9 +31,9 @@ class CuckooHash:
 					return True 
 		
 		current_table = 0
-		count = 0
+		eviction = 0
 
-		while count <= self.CYCLE_THRESHOLD:
+		while eviction <= self.CYCLE_THRESHOLD:
 
 			position = self.hash_func(key, current_table)
 
@@ -46,7 +46,7 @@ class CuckooHash:
 			key, self.tables[current_table][position] = self.tables[current_table][position], key
 
 			current_table = 1 - current_table
-			count += 1
+			eviction += 1
 			
 		return False
 
@@ -92,8 +92,3 @@ class CuckooHash:
 	# feel free to define new methods in addition to the above
 	# fill in the definitions of each required member function (above),
 	# and for any additional member functions you define
-
-
-
-
-
