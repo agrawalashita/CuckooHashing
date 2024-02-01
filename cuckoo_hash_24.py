@@ -36,13 +36,6 @@ class CuckooHash24:
 	# you may however define additional instance variables inside the __init__ method.
 
 	def insert(self, key: int) -> bool:
-
-		# for table_id in range(2):
-		# 	bucket_idx = self.hash_func(key, table_id)
-		# 	bucket = self.tables[table_id][bucket_idx]
-		# 	if bucket is not None and key in bucket:
-		# 		return True 
-			
 		current_table = 0
 		count = 0
 
