@@ -37,25 +37,16 @@ class CuckooHash:
 
 			position = self.hash_func(key, current_table)
 
-			print(f"{key} key hashed in the position {position} in the table {current_table}")
-
 			#if hashed position is empty
 			if self.tables[current_table][position] is None:
 				self.tables[current_table][position] = key
-				print(f"Inserted key {key} at position {position} in table {current_table}")
 				return True
 		
 			#if position is occupied, we swap keys
 			key, self.tables[current_table][position] = self.tables[current_table][position], key
-			print(f"Swapped key {key} at position {position} in table {current_table}")
 
 			current_table = 1 - current_table
 			count += 1
-
-			# #if we are back to the original key and position, it means a cycle is there, return false
-			# if key == original_key and self.hash_func(key, current_table) == position:
-			# 	print("Cycle detected, insertion failed")
-			# 	return False
 			
 		print("Cycle threshold exceeded, insertion failed")
 		return False
@@ -90,11 +81,9 @@ class CuckooHash:
 	def rehash(self, new_table_size: int) -> None:
 		self.__num_rehashes += 1; self.table_size = new_table_size # do not modify this line
 		
-		# Store old tables and create new empty tables of the new size
 		old_tables = self.tables
 		self.tables = [[None]*new_table_size for _ in range(2)]
 
-		#populate new tables with old table content
 		for table in old_tables:
 			for key in table:
 				if key is not None:
