@@ -93,8 +93,3 @@ class CuckooHash:
 	# feel free to define new methods in addition to the above
 	# fill in the definitions of each required member function (above),
 	# and for any additional member functions you define
-
-
-
-
-
