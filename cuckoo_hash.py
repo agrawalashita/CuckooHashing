@@ -30,7 +30,6 @@ class CuckooHash:
 				if existing_key == key:
 					return True 
 		
-		original_key = key
 		current_table = 0
 		count = 0
 
@@ -53,10 +52,10 @@ class CuckooHash:
 			current_table = 1 - current_table
 			count += 1
 
-			#if we are back to the original key and position, it means a cycle is there, return false
-			if key == original_key and self.hash_func(key, current_table) == position:
-				print("Cycle detected, insertion failed")
-				return False
+			# #if we are back to the original key and position, it means a cycle is there, return false
+			# if key == original_key and self.hash_func(key, current_table) == position:
+			# 	print("Cycle detected, insertion failed")
+			# 	return False
 			
 		print("Cycle threshold exceeded, insertion failed")
 		return False

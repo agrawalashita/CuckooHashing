@@ -91,7 +91,6 @@ class CuckooHash24:
 			if bucket is not None and key in bucket:
 				return True 
 			
-		original_key = key
 		current_table = 0
 		count = 0
 
@@ -114,9 +113,9 @@ class CuckooHash24:
 			count += 1
 
 			#if we are back to the original key and position, it means a cycle is there, return false
-			if key == original_key and self.hash_func(key, current_table) == self.hash_func(original_key, current_table):
-				print("Cycle detected, insertion failed")
-				return False
+			# if key == original_key and self.hash_func(key, current_table) == self.hash_func(original_key, current_table):
+			# 	print("Cycle detected, insertion failed")
+			# 	return False
 			
 		print("Cycle threshold exceeded, insertion failed")
 		return False
