@@ -35,54 +35,6 @@ class CuckooHash24:
 	# you should *NOT* change any of the existing code above this line
 	# you may however define additional instance variables inside the __init__ method.
 
-
-	# def insert(self, key: int) -> bool:
-	# 	print(f"Attempting to insert key {key}")
-
-	# 	# Check if key already exists in either of the two tables
-	# 	for table_id in range(2):
-	# 		bucket_idx = self.hash_func(key, table_id)
-	# 		bucket = self.tables[table_id][bucket_idx]
-	# 		if bucket is not None and key in bucket:
-	# 			print(f"Key {key} already exists in table {table_id}, bucket {bucket_idx}")
-	# 			return True 
-
-	# 	original_key = key
-	# 	current_table = 0
-	# 	count = 0
-
-	# 	while count <= self.CYCLE_THRESHOLD:
-	# 		print(f"Current table: {current_table}, attempt count: {count}")
-
-	# 		bucket_idx = self.hash_func(key, current_table)
-	# 		bucket = self.tables[current_table][bucket_idx]
-
-	# 		print(f"Key {key} hashed to bucket {bucket_idx} in table {current_table}")
-
-	# 		if bucket is None:
-	# 			self.tables[current_table][bucket_idx] = bucket = []
-	# 			print(f"Initialized new bucket at index {bucket_idx} in table {current_table}")
-
-	# 		if len(bucket) < self.bucket_size:
-	# 			bucket.append(key)
-	# 			print(f"Inserted key {key} into bucket {bucket_idx} in table {current_table}")
-	# 			return True
-
-	# 		rand_idx = self.get_rand_idx_from_bucket(bucket_idx, current_table)
-	# 		displaced_key = bucket[rand_idx]
-	# 		print(f"Bucket full, displacing key {displaced_key} from index {rand_idx} in bucket {bucket_idx}")
-	# 		key, bucket[rand_idx] = displaced_key, key
-
-	# 		current_table = 1 - current_table
-	# 		count += 1
-
-	# 		if key == original_key and count > 1:
-	# 			print(f"Cycle detected while inserting key {key}, insertion failed")
-	# 			return False
-
-	# 	print(f"Cycle threshold exceeded while inserting key {key}, insertion failed")
-	# 	return False
-
 	def insert(self, key: int) -> bool:
 
 		for table_id in range(2):
@@ -111,11 +63,6 @@ class CuckooHash24:
 
 			current_table = 1 - current_table
 			count += 1
-
-			#if we are back to the original key and position, it means a cycle is there, return false
-			# if key == original_key and self.hash_func(key, current_table) == self.hash_func(original_key, current_table):
-			# 	print("Cycle detected, insertion failed")
-			# 	return False
 			
 		print("Cycle threshold exceeded, insertion failed")
 		return False
