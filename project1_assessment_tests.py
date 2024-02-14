@@ -47,25 +47,20 @@ def cuckoo_hash_tests():
 			print("found cycle when inserting %d" %num)
 			break
 
-	print(c.get_table_contents())
-	# print(ref_ans)
 	ref_ans = [[2, 11, 16, 19], [24, 29], [30, 7, 14, 25], [27, 33], [4, 6, 12, 15], [13, 18, 21, 22], [0, 10, 17, 31], [5, 8, 34, 23], [26, 28], [3, 9, 1, 32]]
-	print(ref_ans)
 
 	if not c.get_table_contents() == ref_ans:
 		print("test 2 table contents incorrect")
 	
-	# print("before rehash-----")
-	# c.rehash(20)
-	# ref_ans = [[29, 28], [19], [12, 18], [24, 21, 22], [4], None, [1, 32], [13], [34], [16, 14, 23], None, [33], [2, 7, 15, 17], None, [6], [11, 31, 26], [25, 27], [30, 5, 3], [0, 8], [10, 9]]
+	c.rehash(20)
+	ref_ans = [[29, 28], [19], [12, 18], [24, 21, 22], [4], None, [1, 32], [13], [34], [16, 14, 23], None, [33], [2, 7, 15, 17], None, [6], [11, 31, 26], [25, 27], [30, 5, 3], [0, 8], [10, 9]]
 
-	# print("after rehash-----")
-	# print(c.get_table_contents())
+	print(c.get_table_contents())
 
-	# if not c.get_table_contents() == ref_ans:
-	# 	print("test 2 table contents incorrect")
-	# 	return
-	# print("\ntest 2 table contents correct")
+	if not c.get_table_contents() == ref_ans:
+		print("test 2 table contents incorrect")
+		return
+	print("\ntest 2 table contents correct")
 
 if __name__ == '__main__':
 	cuckoo_hash_tests()

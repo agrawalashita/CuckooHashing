@@ -85,7 +85,6 @@ class CuckooHash24:
 		return False
 
 	def rehash(self, new_table_size: int) -> None:
-		print("----here in rehash")
 		old_table = self.table
 		self.__num_rehashes += 1
 		self.table_size = new_table_size
