@@ -1,5 +1,6 @@
 from cuckoo_hash import CuckooHash
 from cuckoo_hash_24 import CuckooHash24
+from cuckoo_hash_assess import CuckooHash24_A
 
 # Please read all of the following before starting your implementation:
 #
