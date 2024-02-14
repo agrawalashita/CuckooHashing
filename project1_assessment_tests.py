@@ -2,7 +2,7 @@ import requirements
 import random as rand
 
 # Instructions
-# Some test cases for the CuckooHash24_A class can be found below.
+# Some test cases for the CuckooHash24 class can be found below.
 #
 # Note that the test cases here are just to give an idea of how we will test your submissions, so passing these tests does not mean that your code is correct.
 # It is a good idea to try and create different test cases with different table sizes to fully test your implementation.
@@ -13,7 +13,7 @@ def cuckoo_hash_tests():
 	input_size, table_size = 10, 10
 	nums = [i for i in range(input_size)]
 	
-	c = requirements.CuckooHash24_A(table_size)
+	c = requirements.CuckooHash24(table_size)
 	for num in nums:
 		print("inserting %d" % num)
 		no_cycle = c.insert(num)
@@ -38,7 +38,7 @@ def cuckoo_hash_tests():
 	input_size, table_size = 40, 10
 	nums = [i for i in range(input_size)]
 
-	c = requirements.CuckooHash24_A_A(table_size)
+	c = requirements.CuckooHash24(table_size)
 	for num in nums:
 		# there should be a cycle when inserting 34
 		print("inserting %d" % num)
